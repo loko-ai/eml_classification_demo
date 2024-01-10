@@ -3,7 +3,7 @@
   "id": "eml_classification",
   "description": "",
   "created_on": "19/05/2023, 08:54:15",
-  "last_modify": "10/01/2024, 10:56:25",
+  "last_modify": "10/01/2024, 11:09:21",
   "graphs": {
     "eml_classification": {
       "nodes": [
@@ -482,7 +482,7 @@
                 "eval_branch": "development",
                 "test_size": "0.2",
                 "service": "predictor",
-                "predictor": "provescreen"
+                "predictor": "eml_clf"
               }
             },
             "disabled": false,
@@ -2697,184 +2697,18 @@
           "sourcePosition": "right",
           "targetPosition": "left",
           "width": 1358.0710669597602,
-          "height": 296.94526217787154,
+          "height": 347.94526217787154,
           "selected": false,
           "dragging": false,
           "data": {
             "comment": "Save eml \"ALTRO\" (email and attachments) in a mongo DB collection",
             "fill": "#F74B65",
-            "height": 296.94526217787154,
+            "height": 347.94526217787154,
             "width": 1358.0710669597602
           },
           "zIndex": -1,
           "selectable": false,
           "connectable": false,
-          "__class__": "Node"
-        },
-        {
-          "id": "ff2968b6-028c-4dcb-93a1-54dd4b7bc445",
-          "position": {
-            "x": 797,
-            "y": 111
-          },
-          "type": "custom",
-          "dragHandle": "#nodeHandle",
-          "sourcePosition": "right",
-          "targetPosition": "left",
-          "width": 150,
-          "height": 56,
-          "selected": false,
-          "dragging": false,
-          "data": {
-            "name": "Trigger",
-            "events": null,
-            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
-            "inputs": [],
-            "outputs": [
-              {
-                "id": "output",
-                "label": "output"
-              }
-            ],
-            "configured": true,
-            "options": {
-              "group": "Common",
-              "args": [
-                {
-                  "name": "comment",
-                  "type": "area",
-                  "label": "Node comment",
-                  "helper": "Use it to explain the usage of this node"
-                },
-                {
-                  "name": "alias",
-                  "type": "text",
-                  "label": "Name",
-                  "helper": "Use this name as an alias"
-                },
-                {
-                  "name": "debug",
-                  "type": "boolean",
-                  "label": "Debug to Console",
-                  "divider": true
-                },
-                {
-                  "name": "type",
-                  "type": "select",
-                  "description": "The type of data",
-                  "label": "Type",
-                  "validation": {
-                    "required": "Required field"
-                  },
-                  "fragment": null,
-                  "advanced": false,
-                  "options": [
-                    "String",
-                    "Object"
-                  ],
-                  "value": null
-                },
-                {
-                  "name": "value",
-                  "type": "dynamic",
-                  "dynamicType": {
-                    "String": "area",
-                    "Object": "code"
-                  },
-                  "parent": "type",
-                  "label": "Value",
-                  "validation": {
-                    "required": "Required field"
-                  }
-                }
-              ],
-              "click": "Send message",
-              "icon": "RiPlayFill",
-              "values": {
-                "comment": "",
-                "alias": "",
-                "debug": false,
-                "type": "Object",
-                "value": "{}"
-              }
-            },
-            "locked": null
-          },
-          "selectable": true,
-          "draggable": true,
-          "__class__": "Node"
-        },
-        {
-          "id": "5e05d0af-5015-48d1-bd7f-a61fb693043f",
-          "position": {
-            "x": 1317,
-            "y": -143
-          },
-          "type": "custom",
-          "dragHandle": "#nodeHandle",
-          "sourcePosition": "right",
-          "targetPosition": "left",
-          "width": 150,
-          "height": 56,
-          "selected": false,
-          "dragging": false,
-          "data": {
-            "name": "Grouper",
-            "events": null,
-            "description": "### Description\nThe GROUPER component is used to group the elements received in input. The items will be returned in batches with a maximum size equal to **Group size**.\n\n### Input\nIn this case there is no fixed input format.\n\n### Output\nIn output lists of elements received in input with a maximum length equal to **Group size**.",
-            "inputs": [
-              {
-                "id": "input",
-                "label": "input"
-              }
-            ],
-            "outputs": [
-              {
-                "id": "output",
-                "label": "output"
-              }
-            ],
-            "configured": true,
-            "options": {
-              "group": "Common",
-              "args": [
-                {
-                  "name": "comment",
-                  "type": "area",
-                  "label": "Node comment",
-                  "helper": "Use it to explain the usage of this node"
-                },
-                {
-                  "name": "alias",
-                  "type": "text",
-                  "label": "Name",
-                  "helper": "Use this name as an alias"
-                },
-                {
-                  "name": "debug",
-                  "type": "boolean",
-                  "label": "Debug to Console",
-                  "divider": true
-                },
-                {
-                  "name": "n",
-                  "label": "Group size",
-                  "type": "number"
-                }
-              ],
-              "click": null,
-              "icon": "RiGroupFill",
-              "values": {
-                "comment": "",
-                "alias": "",
-                "debug": true,
-                "n": "100"
-              }
-            },
-            "locked": null
-          },
-          "selectable": true,
-          "draggable": true,
           "__class__": "Node"
         }
       ],
@@ -3014,62 +2848,6 @@
           "data": {
             "startColor": "#D770AD",
             "stopColor": "#888"
-          },
-          "selected": false,
-          "dragging": false,
-          "__class__": "Edge"
-        },
-        {
-          "id": "reactflow__edge-ff2968b6-028c-4dcb-93a1-54dd4b7bc445output-a5df2603-dc89-4ab4-b304-fd42fbe61504query",
-          "source": "ff2968b6-028c-4dcb-93a1-54dd4b7bc445",
-          "sourceHandle": "output",
-          "target": "a5df2603-dc89-4ab4-b304-fd42fbe61504",
-          "targetHandle": "query",
-          "data": {
-            "startColor": "#D770AD",
-            "stopColor": "#888"
-          },
-          "selected": false,
-          "dragging": false,
-          "__class__": "Edge"
-        },
-        {
-          "id": "reactflow__edge-a5df2603-dc89-4ab4-b304-fd42fbe61504query_output-5e05d0af-5015-48d1-bd7f-a61fb693043finput",
-          "source": "a5df2603-dc89-4ab4-b304-fd42fbe61504",
-          "sourceHandle": "query_output",
-          "target": "5e05d0af-5015-48d1-bd7f-a61fb693043f",
-          "targetHandle": "input",
-          "data": {
-            "startColor": "#888",
-            "stopColor": "#D770AD"
-          },
-          "selected": false,
-          "dragging": false,
-          "__class__": "Edge"
-        },
-        {
-          "id": "reactflow__edge-ff2968b6-028c-4dcb-93a1-54dd4b7bc445output-892fece1-1c2a-4d3e-91c8-de9ae7ac8b7bquery",
-          "source": "ff2968b6-028c-4dcb-93a1-54dd4b7bc445",
-          "sourceHandle": "output",
-          "target": "892fece1-1c2a-4d3e-91c8-de9ae7ac8b7b",
-          "targetHandle": "query",
-          "data": {
-            "startColor": "#D770AD",
-            "stopColor": "#888"
-          },
-          "selected": false,
-          "dragging": false,
-          "__class__": "Edge"
-        },
-        {
-          "id": "reactflow__edge-892fece1-1c2a-4d3e-91c8-de9ae7ac8b7bquery_output-5e05d0af-5015-48d1-bd7f-a61fb693043finput",
-          "source": "892fece1-1c2a-4d3e-91c8-de9ae7ac8b7b",
-          "sourceHandle": "query_output",
-          "target": "5e05d0af-5015-48d1-bd7f-a61fb693043f",
-          "targetHandle": "input",
-          "data": {
-            "startColor": "#888",
-            "stopColor": "#D770AD"
           },
           "selected": false,
           "dragging": false,
